@@ -7,7 +7,6 @@ class MyApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        Log.i("gnah", "coucou")
     }
 
 }
