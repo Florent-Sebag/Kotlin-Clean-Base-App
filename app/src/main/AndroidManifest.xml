@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".BaseActivity">
+        <activity android:name="com.sebag.florent.presenter.BaseActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

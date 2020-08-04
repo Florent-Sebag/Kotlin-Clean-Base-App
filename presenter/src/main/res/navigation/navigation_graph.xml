@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.sebag.florent.cleanbaseapp.HomeFragment"
+        android:name="com.sebag.florent.presenter.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home">
 
@@ -18,7 +18,7 @@
 
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.sebag.florent.cleanbaseapp.DetailFragment"
+        android:name="com.sebag.florent.presenter.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail">
 

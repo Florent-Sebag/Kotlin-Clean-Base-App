@@ -1,4 +1,4 @@
-package com.sebag.florent.cleanbaseapp
+package com.sebag.florent.presenter
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
+import com.sebag.florent.presenter.HomeFragmentDirections
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {

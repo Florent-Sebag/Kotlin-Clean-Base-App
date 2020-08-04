@@ -1,4 +1,4 @@
-package com.sebag.florent.cleanbaseapp
+package com.sebag.florent.presenter
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
