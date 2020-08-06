@@ -40,9 +40,9 @@ dependencies {
     testImplementation globalDependencies.BASETEST
     androidTestImplementation globalDependencies.BASEANDROIDTEST
 
-    apply plugin: "androidx.navigation.safeargs.kotlin"
-
     implementation project(':domain')
+
+    apply plugin: "androidx.navigation.safeargs.kotlin"
 
     implementation globalDependencies.NAVIGATION_COMPONENT
     implementation globalDependencies.DAGGER
