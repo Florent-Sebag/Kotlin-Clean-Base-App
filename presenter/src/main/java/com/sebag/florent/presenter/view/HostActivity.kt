@@ -1,9 +1,10 @@
-package com.sebag.florent.presenter
+package com.sebag.florent.presenter.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.sebag.florent.presenter.R
 
-class BaseActivity : AppCompatActivity() {
+class HostActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_base)

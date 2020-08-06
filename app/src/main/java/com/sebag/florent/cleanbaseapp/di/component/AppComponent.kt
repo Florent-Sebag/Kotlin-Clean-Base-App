@@ -5,6 +5,8 @@ import com.sebag.florent.cleanbaseapp.di.modules.AppModule
 import com.sebag.florent.data.di.GsonModule
 import com.sebag.florent.data.di.OkHttpModule
 import com.sebag.florent.data.di.RetrofitModule
+import com.sebag.florent.presenter.di.BuilderModule
+import com.sebag.florent.presenter.di.ViewModelModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
@@ -17,7 +19,9 @@ import javax.inject.Singleton
         AppModule::class,
         OkHttpModule::class,
         RetrofitModule::class,
-        GsonModule::class
+        GsonModule::class,
+        BuilderModule::class,
+        ViewModelModule::class
     ]
 )
 interface AppComponent {

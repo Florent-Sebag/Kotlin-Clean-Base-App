@@ -15,7 +15,7 @@ class RetrofitModule {
     @Provides
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("www.androidapps.com")
+            .baseUrl("https://intra.epitech.eu/auth-4480553ba869735e3d876d27e411c916a8ca4adf/planning/load?format=json&start=2020-06-25&end=2020-06-27")
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .client(okHttpClient)
