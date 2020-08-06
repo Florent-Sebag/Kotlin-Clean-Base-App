@@ -35,36 +35,22 @@ android {
 }
 
 dependencies {
+
+
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.3.1'
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation globalDependencies.BASE
+    testImplementation globalDependencies.BASETEST
+    androidTestImplementation globalDependencies.BASEANDROIDTEST
 
-    // OKHTTP
-    api "com.squareup.okhttp3:okhttp:4.8.0"
-    api "com.squareup.okhttp3:logging-interceptor:4.8.0"
+    implementation project(':domain')
 
-    // DAGGER
-    api 'com.google.dagger:dagger:2.28.3'
+    implementation globalDependencies.RXJAVA
+    implementation globalDependencies.OKHTTP
+    implementation globalDependencies.DAGGER
+    implementation globalDependencies.GSON
+    implementation globalDependencies.RETROFIT
 
-    api "com.google.dagger:dagger-android:2.28.3"
-    api "com.google.dagger:dagger-android-support:2.28.3"
-    kapt "com.google.dagger:dagger-android-processor:2.28.3"
-    kapt 'com.google.dagger:dagger-compiler:2.28.3'
+    kapt globalDependencies.DAGGERK
 
-
-
-    // GSON
-    api 'com.google.code.gson:gson:2.8.6'
-    api "com.squareup.retrofit2:converter-gson:2.9.0"
-
-    // RETROFIT
-    api 'com.squareup.retrofit2:retrofit:2.9.0'
-
-    // RX
-    api "com.github.akarnokd:rxjava3-retrofit-adapter:3.0.0"
 
 }
