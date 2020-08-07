@@ -3,7 +3,7 @@
     package="com.sebag.florent.presenter">
 
     <application>
-        <activity android:name=".BaseActivity"></activity>
+        <activity android:name=".view.HostActivity"></activity>
     </application>
 
 </manifest>

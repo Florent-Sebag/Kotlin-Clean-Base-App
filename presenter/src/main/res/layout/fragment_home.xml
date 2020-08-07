@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".HomeFragment">
+    tools:context=".view.fragments.home.HomeFragment">
 
     <EditText
         android:id="@+id/toSend"
@@ -19,5 +19,16 @@
         android:layout_height="wrap_content"
         android:text="Send ME"
         android:id="@+id/sendBtn" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Generate a joke"
+        android:id="@+id/generateBtn" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/joke_text_view"/>
 
 </LinearLayout>
