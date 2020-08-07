@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
-import dagger.android.AndroidInjection
 import dagger.android.support.AndroidSupportInjection
 
 abstract class BaseFragment : Fragment() {

@@ -8,6 +8,8 @@ import javax.inject.Inject
 class HomeVM @Inject constructor(private val sampleUseCase: SampleUseCase): BaseViewModel() {
 
     fun coucou() {
+        compositeDisposable
+        Log.i("gnah", sampleUseCase.g.toString())
         Log.i("gnah", sampleUseCase.fetchSampleData().toString())
     }
 }

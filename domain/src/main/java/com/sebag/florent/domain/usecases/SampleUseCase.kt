@@ -6,7 +6,10 @@ import javax.inject.Inject
 
 class SampleUseCase @Inject constructor(private val sampleRepository: SampleRepository) {
 
+    var g = 3
+
     fun fetchSampleData() : Int {
+        g += 1
         return sampleRepository.getSampleData()
     }
 

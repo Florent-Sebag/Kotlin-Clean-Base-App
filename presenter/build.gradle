@@ -47,6 +47,7 @@ dependencies {
     implementation globalDependencies.NAVIGATION_COMPONENT
     implementation globalDependencies.DAGGER
     implementation globalDependencies.LIFECYCLE
+    implementation globalDependencies.RXJAVA
 
     kapt globalDependencies.DAGGERK
     kapt globalDependencies.LIFECYCLEK

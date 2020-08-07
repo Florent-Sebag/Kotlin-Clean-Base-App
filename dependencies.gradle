@@ -69,7 +69,7 @@ ext {
             "com.squareup.retrofit2:converter-gson:$RETROFIT"
         ],
 
-        RXJAVA : "com.github.akarnokd:rxjava3-retrofit-adapter:$RXJAVA",
+        RXJAVA : "io.reactivex.rxjava3:rxjava:$RXJAVA",
 
         NAVIGATION_COMPONENT : [
             "androidx.navigation:navigation-fragment-ktx:$NAVIGATION_COMPONENT",
