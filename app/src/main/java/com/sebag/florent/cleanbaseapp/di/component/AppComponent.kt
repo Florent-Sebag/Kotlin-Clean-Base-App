@@ -2,10 +2,7 @@ package com.sebag.florent.cleanbaseapp.di.component
 
 import com.sebag.florent.cleanbaseapp.MyApp
 import com.sebag.florent.cleanbaseapp.di.modules.AppModule
-import com.sebag.florent.data.di.GsonModule
-import com.sebag.florent.data.di.OkHttpModule
-import com.sebag.florent.data.di.RepositoryImplModule
-import com.sebag.florent.data.di.RetrofitModule
+import com.sebag.florent.data.di.*
 import com.sebag.florent.domain.di.UseCaseModule
 import com.sebag.florent.presenter.di.BuilderModule
 import com.sebag.florent.presenter.di.ViewModelModule
@@ -25,7 +22,8 @@ import javax.inject.Singleton
         BuilderModule::class,
         ViewModelModule::class,
         RepositoryImplModule::class,
-        UseCaseModule::class
+        UseCaseModule::class,
+        ServiceModule::class
     ]
 )
 interface AppComponent {

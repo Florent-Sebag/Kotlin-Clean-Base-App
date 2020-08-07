@@ -8,7 +8,7 @@ import javax.inject.Inject
 class DetailVM @Inject constructor(private val sampleUseCase: SampleUseCase) : BaseViewModel() {
 
     fun coucou() {
-        Log.i("gnah", sampleUseCase.g.toString())
-        //Log.i("gnah", sampleUseCase.fetchSampleData().toString())
+
+        Log.i("gnah", sampleUseCase.fetchSampleData().toString())
     }
 }

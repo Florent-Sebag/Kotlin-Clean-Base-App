@@ -41,6 +41,8 @@ dependencies {
     androidTestImplementation globalDependencies.BASEANDROIDTEST
 
     implementation globalDependencies.DAGGER
+    implementation globalDependencies.GSON
+    implementation globalDependencies.RXJAVA
 
     kapt globalDependencies.DAGGERK
 }

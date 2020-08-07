@@ -21,6 +21,12 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'API_URL', '"http://api.icndb.com/"'
+            buildConfigField 'String', 'API_KEY', '""'
+        }
+        debug {
+            buildConfigField 'String', 'API_URL', '"http://api.icndb.com/"'
+            buildConfigField 'String', 'API_KEY', '""'
         }
     }
 
@@ -45,6 +51,7 @@ dependencies {
     implementation project(':domain')
 
     implementation globalDependencies.RXJAVA
+    implementation globalDependencies.RXRETROFIT
     implementation globalDependencies.OKHTTP
     implementation globalDependencies.DAGGER
     implementation globalDependencies.GSON
