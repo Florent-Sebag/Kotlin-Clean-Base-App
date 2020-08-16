@@ -11,7 +11,5 @@ class ServiceModule {
 
     @Provides
     @Singleton
-    fun provideService(retrofit: Retrofit) : IcnDB {
-        return (retrofit.create(IcnDB::class.java))
-    }
+    fun provideService(retrofit: Retrofit) : IcnDB = retrofit.create(IcnDB::class.java)
 }
