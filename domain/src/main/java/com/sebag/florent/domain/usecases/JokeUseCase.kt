@@ -10,7 +10,5 @@ class JokeUseCase
     private val jokeRepository: JokeRepository
 ) {
 
-    fun getRandomJoke() : Single<Joke> {
-        return jokeRepository.fetchRandomJoke()
-    }
+    fun getRandomJoke() : Single<Joke> = jokeRepository.fetchRandomJoke()
 }

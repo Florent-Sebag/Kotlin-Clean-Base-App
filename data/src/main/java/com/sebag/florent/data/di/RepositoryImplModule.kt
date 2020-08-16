@@ -14,13 +14,9 @@ class RepositoryImplModule {
 
     @Singleton
     @Provides
-    fun provideSampleRepositoryImpl() : SampleRepository {
-        return SampleRepositoryImpl()
-    }
+    fun provideSampleRepositoryImpl() : SampleRepository = SampleRepositoryImpl()
 
     @Singleton
     @Provides
-    fun provideJokeRepositoryImpl(service: IcnDB) : JokeRepository {
-        return JokeRepositoryImpl(service)
-    }
+    fun provideJokeRepositoryImpl(service: IcnDB) : JokeRepository = JokeRepositoryImpl(service)
 }
