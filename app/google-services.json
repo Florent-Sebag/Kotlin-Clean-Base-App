@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "205204836188",
+    "firebase_url": "https://baseapp-e3740.firebaseio.com",
+    "project_id": "baseapp-e3740",
+    "storage_bucket": "baseapp-e3740.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:205204836188:android:8dbcf045ba336856d3bb99",
+        "android_client_info": {
+          "package_name": "com.sebag.florent.cleanbaseapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "205204836188-thpsitgl3vl8aarbhq2qpvdjb2pt985o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAB0qIJLZbAXEoKguW9RrEsrHakbE82ldo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "205204836188-thpsitgl3vl8aarbhq2qpvdjb2pt985o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

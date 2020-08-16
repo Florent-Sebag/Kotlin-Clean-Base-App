@@ -17,6 +17,10 @@ ext {
     RXJAVA                          = '3.0.0'
     RXRETROFIT                      = '3.0.0'
 
+    FIREBASE                        = '17.5.0' //?
+    FIREBASE_AUTH                   = '19.3.2'
+    FIREBASE_AUTH_UI                = '6.2.0'
+
 
     
     //==============================================================================================
@@ -81,6 +85,11 @@ ext {
         NAVIGATION_COMPONENT : [
             "androidx.navigation:navigation-fragment-ktx:$NAVIGATION_COMPONENT",
             "androidx.navigation:navigation-ui-ktx:$NAVIGATION_COMPONENT"
+        ],
+
+        FIREBASE : [
+            "com.google.firebase:firebase-analytics:$FIREBASE",
+            "com.google.firebase:firebase-auth:$FIREBASE_AUTH"
         ]
     ]
 }

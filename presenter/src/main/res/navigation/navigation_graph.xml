@@ -18,9 +18,9 @@
 
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.sebag.florent.presenter.view.fragments.detail.DetailFragment"
+        android:name="com.sebag.florent.presenter.view.fragments.detail.AuthFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail">
+        tools:layout="@layout/fragment_auth">
 
         <argument
             android:name="user_input"

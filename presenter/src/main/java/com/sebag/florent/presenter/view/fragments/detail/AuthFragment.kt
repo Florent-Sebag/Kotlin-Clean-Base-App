@@ -5,17 +5,17 @@ import android.view.View
 import androidx.navigation.fragment.navArgs
 import com.sebag.florent.presenter.R
 import com.sebag.florent.presenter.view.base.BaseFragment
-import kotlinx.android.synthetic.main.fragment_detail.*
+import kotlinx.android.synthetic.main.fragment_auth.*
 import javax.inject.Inject
 
-class DetailFragment : BaseFragment() {
+class AuthFragment : BaseFragment() {
 
     @Inject
-    lateinit var viewModel : DetailVM
+    lateinit var viewModel : AuthVM
 
-    private val args: DetailFragmentArgs by navArgs()
+    private val args: AuthFragmentArgs by navArgs()
 
-    override fun layoutRes() = R.layout.fragment_detail
+    override fun layoutRes() = R.layout.fragment_auth
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

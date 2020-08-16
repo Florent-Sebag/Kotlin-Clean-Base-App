@@ -50,6 +50,8 @@ dependencies {
 
     implementation project(':domain')
 
+    implementation globalDependencies.FIREBASE
+
     implementation globalDependencies.RXJAVA
     implementation globalDependencies.RXRETROFIT
     implementation globalDependencies.OKHTTP
