@@ -1,4 +1,4 @@
-package com.sebag.florent.data
+package com.sebag.florent.data.repositories
 
 import com.sebag.florent.data.api.IcnDB
 import com.sebag.florent.domain.models.Joke

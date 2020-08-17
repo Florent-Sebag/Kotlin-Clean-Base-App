@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.sebag.florent.presenter.di.utils.ViewModelFactory
 import com.sebag.florent.presenter.di.utils.ViewModelKey
-import com.sebag.florent.presenter.view.fragments.detail.AuthVM
+import com.sebag.florent.presenter.view.fragments.auth.AuthVM
 import com.sebag.florent.presenter.view.fragments.home.HomeVM
 import dagger.Binds
 import dagger.Module

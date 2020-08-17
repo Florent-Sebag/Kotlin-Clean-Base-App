@@ -1,4 +1,4 @@
-package com.sebag.florent.data
+package com.sebag.florent.data.repositories
 
 import com.sebag.florent.domain.repositories.SampleRepository
 import javax.inject.Inject

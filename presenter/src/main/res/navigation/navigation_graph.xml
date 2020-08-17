@@ -3,7 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/authFragment">
+
+
+
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="com.sebag.florent.presenter.view.fragments.auth.AuthFragment"
+        android:label="fragment_auth"
+        tools:layout="@layout/fragment_auth">
+
+        <action
+            android:id="@+id/goHome"
+            app:destination="@id/homeFragment" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/homeFragment"
@@ -11,20 +25,8 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home">
 
-        <action
-            android:id="@+id/launchDetail"
-            app:destination="@id/detailFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/detailFragment"
-        android:name="com.sebag.florent.presenter.view.fragments.detail.AuthFragment"
-        android:label="fragment_detail"
-        tools:layout="@layout/fragment_auth">
-
         <argument
             android:name="user_input"
             app:argType="string" />
-
     </fragment>
 </navigation>

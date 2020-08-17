@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
 import com.sebag.florent.presenter.R
 import com.sebag.florent.presenter.view.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -14,6 +15,8 @@ class HomeFragment : BaseFragment() {
     @Inject
     lateinit var viewModel : HomeVM
 
+    private val args: HomeFragmentArgs by navArgs()
+
     override fun layoutRes() = R.layout.fragment_home
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -23,10 +26,12 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun initView(view: View) {
-        sendBtn.setOnClickListener {
-            val direction = HomeFragmentDirections.launchDetail(toSend.text.toString())
-            view.findNavController().navigate(direction)
-        }
+        generateBtn.text = args.userInput
+
+//        sendBtn.setOnClickListener {
+//            val direction = HomeFragmentDirections.launchDetail(toSend.text.toString())
+//            view.findNavController().navigate(direction)
+//        }
 
         generateBtn.setOnClickListener {
             viewModel.generateJoke()

@@ -60,6 +60,8 @@ dependencies {
     implementation globalDependencies.GSON
     implementation globalDependencies.RETROFIT
 
+    implementation globalDependencies.MATERIAL_DESIGN
+
     kapt globalDependencies.DAGGERK
 
 }
