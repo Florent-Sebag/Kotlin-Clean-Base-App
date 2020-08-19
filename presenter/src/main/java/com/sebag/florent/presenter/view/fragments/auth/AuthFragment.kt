@@ -27,10 +27,9 @@ class AuthFragment : BaseFragment() {
 
     private fun bindLoginBtn(v: View) {
 
-        if (check_input())
+        if (errorEmailPassword())
             return
 
-        layout_email.isErrorEnabled = false
         showLoadingDialog("Authenticating...")
         viewModel.logUser(input_email.text.toString(), input_password.text.toString())
 
@@ -51,33 +50,19 @@ class AuthFragment : BaseFragment() {
         })
     }
 
-    private fun check_input() : Boolean {
-        var res = false
+    private fun errorEmailPassword() : Boolean {
 
-        if (!isValidEmail(input_email.text.toString())) {
-            layout_email.error = "The email address is badly formatted"
-            layout_email.isErrorEnabled = true
-            res = true
-        } else {
-            layout_email.isErrorEnabled = false
+        val badEmail =  isBadInput(input_email, layout_email,
+            "The email address is badly formatted") {
+                !TextUtils.isEmpty(it)
+                        && android.util.Patterns.EMAIL_ADDRESS.matcher(it).matches()
+            }
+
+        val badPassword = isBadInput(input_password, layout_password,
+            "The password is badly formatted") {
+            it.length > 6
         }
 
-        if (!isValidPassword(input_password.text.toString())) {
-            layout_password.error = "The password is badly formatted"
-            layout_password.isErrorEnabled = true
-            res = true
-        } else {
-            layout_password.isErrorEnabled = false
-        }
-        return res
-    }
-
-    private fun isValidEmail(target : String) : Boolean {
-        return !TextUtils.isEmpty(target)
-                && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches()
-    }
-
-    private fun isValidPassword(target: String) : Boolean {
-        return target.length > 6
+        return (badEmail || badPassword)
     }
 }
