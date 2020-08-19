@@ -23,12 +23,21 @@ class AuthFragment : BaseFragment() {
 
         btn_login.setOnClickListener {
 
+            showLoadingDialog("Authenticating...")
             viewModel.logUser(input_email.text.toString(), input_password.text.toString())
+
             viewModel.mUser.observe(viewLifecycleOwner, Observer { user ->
+                hideLoadingDialog()
                 user?.let {
-                    val direction = AuthFragmentDirections.goHome(user.email!!)
+                    showToastMessage("Success !")
+                    val direction = AuthFragmentDirections.goHome(it.email!!)
                     view.findNavController().navigate(direction)
                 }
+            })
+
+            viewModel.mError.observe(viewLifecycleOwner, Observer {
+                hideLoadingDialog()
+                showToastMessage(it)
             })
 
         }

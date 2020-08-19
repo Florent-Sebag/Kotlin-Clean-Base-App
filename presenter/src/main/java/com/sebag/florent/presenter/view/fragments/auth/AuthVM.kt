@@ -14,6 +14,7 @@ import javax.inject.Inject
 class AuthVM @Inject constructor(private val authUseCase: AuthUseCase) : BaseViewModel() {
 
     val mUser = MutableLiveData<User>()
+    val mError = MutableLiveData<String>()
 
     fun logUser(email: String, password: String) {
         authUseCase.logUser(email, password)
@@ -23,7 +24,7 @@ class AuthVM @Inject constructor(private val authUseCase: AuthUseCase) : BaseVie
                     mUser.value = it
                 },
                 onError = {
-                    Log.i("gnah", it.message!!)
+                    mError.value = it.message
                 }
             )
             .addToDisposable()
