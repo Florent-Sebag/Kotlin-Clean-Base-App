@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fitsSystemWindows="true"
     android:background="@color/blue_200"
     android:theme="@style/contraryTheme">
@@ -22,6 +23,7 @@
 
         <!-- Email Label -->
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_email"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -39,6 +41,7 @@
 
         <!-- Password Label -->
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_password"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

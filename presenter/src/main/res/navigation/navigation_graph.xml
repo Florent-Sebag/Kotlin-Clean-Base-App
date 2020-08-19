@@ -26,7 +26,7 @@
         tools:layout="@layout/fragment_home">
 
         <argument
-            android:name="user_input"
+            android:name="user"
             app:argType="string" />
     </fragment>
 </navigation>

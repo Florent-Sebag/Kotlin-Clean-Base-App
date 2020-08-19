@@ -26,7 +26,7 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun initView(view: View) {
-        generateBtn.text = args.userInput
+        generateBtn.text = args.user
 
 //        sendBtn.setOnClickListener {
 //            val direction = HomeFragmentDirections.launchDetail(toSend.text.toString())
