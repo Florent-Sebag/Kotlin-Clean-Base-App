@@ -21,7 +21,7 @@ abstract class ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(AuthVM::class)
-    abstract fun bindDetailViewModel(authVM: AuthVM) : ViewModel
+    abstract fun bindAuthViewModel(authVM: AuthVM) : ViewModel
 
     @Binds
     abstract fun bindViewModelFactory(factory: ViewModelFactory) : ViewModelProvider.Factory

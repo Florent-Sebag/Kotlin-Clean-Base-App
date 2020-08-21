@@ -6,4 +6,6 @@ import io.reactivex.rxjava3.core.Single
 interface FirebaseAuthRepository {
 
     fun loginUser(email: String, password : String) : Single<User>
+
+    fun isUserConnected() : Boolean
 }

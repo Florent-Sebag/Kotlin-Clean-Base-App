@@ -53,12 +53,14 @@ dependencies {
     implementation project(":presenter")
 
     implementation globalDependencies.FIREBASE
+    implementation globalDependencies.NAVIGATION_COMPONENT
 
     implementation globalDependencies.OKHTTP
     implementation globalDependencies.DAGGER
     implementation globalDependencies.RXRETROFIT
     implementation globalDependencies.GSON
     implementation globalDependencies.RETROFIT
+    implementation globalDependencies.RXJAVA
 
     implementation globalDependencies.MATERIAL_DESIGN
 

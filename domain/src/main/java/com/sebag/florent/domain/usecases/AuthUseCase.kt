@@ -12,4 +12,6 @@ class AuthUseCase
 
     fun logUser(email: String, password: String) : Single<User> =
         firebaseAuthRepository.loginUser(email, password)
+
+    fun isUserConnected() : Boolean = firebaseAuthRepository.isUserConnected()
 }

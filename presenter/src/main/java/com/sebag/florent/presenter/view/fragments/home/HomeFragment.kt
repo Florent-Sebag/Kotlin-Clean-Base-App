@@ -26,12 +26,7 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun initView(view: View) {
-        generateBtn.text = args.user
-
-//        sendBtn.setOnClickListener {
-//            val direction = HomeFragmentDirections.launchDetail(toSend.text.toString())
-//            view.findNavController().navigate(direction)
-//        }
+        generateBtn.text = viewModel.getEmail()
 
         generateBtn.setOnClickListener {
             viewModel.generateJoke()

@@ -1,11 +1,8 @@
 package com.sebag.florent.presenter.view.fragments.auth
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.sebag.florent.domain.models.Joke
 import com.sebag.florent.domain.models.User
 import com.sebag.florent.domain.usecases.AuthUseCase
-import com.sebag.florent.domain.usecases.SampleUseCase
 import com.sebag.florent.presenter.view.base.BaseViewModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.kotlin.subscribeBy
