@@ -15,7 +15,8 @@ class HomeFragment : BaseFragment() {
     @Inject
     lateinit var viewModel : HomeVM
 
-    private val args: HomeFragmentArgs by navArgs()
+//    EXEMPLE GET ARGUMENTS
+//    private val args: HomeFragmentArgs by navArgs()
 
     override fun layoutRes() = R.layout.fragment_home
 

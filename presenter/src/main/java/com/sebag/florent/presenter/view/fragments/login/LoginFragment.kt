@@ -1,4 +1,4 @@
-package com.sebag.florent.presenter.view.fragments.auth
+package com.sebag.florent.presenter.view.fragments.login
 
 import android.os.Bundle
 import android.text.TextUtils
@@ -12,10 +12,10 @@ import com.sebag.florent.presenter.view.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_auth.*
 import javax.inject.Inject
 
-class AuthFragment : BaseFragment() {
+class LoginFragment : BaseFragment() {
 
     @Inject
-    lateinit var viewModel : AuthVM
+    lateinit var viewModel : LoginVM
 
     override fun layoutRes() = R.layout.fragment_auth
 
@@ -42,16 +42,10 @@ class AuthFragment : BaseFragment() {
 
         showLoadingDialog("Authenticating...")
         viewModel.logUser(input_email.text.toString(), input_password.text.toString())
-
-        viewModel.mUser.observe(viewLifecycleOwner, Observer { user ->
+        viewModel.mSuccess.observe(viewLifecycleOwner, Observer { _ ->
             hideLoadingDialog()
-            user?.let {
-                showToastMessage("Success !")
-                user.email?.let {
-                    val direction = AuthFragmentDirections.goHome(it)
-                    v.findNavController().navigate(direction)
-                }
-            }
+            val direction = AuthFragmentDirections.goHome()
+            v.findNavController().navigate(direction)
         })
 
         viewModel.mError.observe(viewLifecycleOwner, Observer {

@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.sebag.florent.presenter.di.utils.ViewModelFactory
 import com.sebag.florent.presenter.di.utils.ViewModelKey
-import com.sebag.florent.presenter.view.fragments.auth.AuthVM
+import com.sebag.florent.presenter.view.fragments.login.LoginVM
 import com.sebag.florent.presenter.view.fragments.home.HomeVM
 import dagger.Binds
 import dagger.Module
@@ -20,8 +20,8 @@ abstract class ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(AuthVM::class)
-    abstract fun bindAuthViewModel(authVM: AuthVM) : ViewModel
+    @ViewModelKey(LoginVM::class)
+    abstract fun bindAuthViewModel(loginVM: LoginVM) : ViewModel
 
     @Binds
     abstract fun bindViewModelFactory(factory: ViewModelFactory) : ViewModelProvider.Factory

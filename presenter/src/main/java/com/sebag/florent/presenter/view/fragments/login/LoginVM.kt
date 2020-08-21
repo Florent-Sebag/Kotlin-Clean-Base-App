@@ -1,24 +1,23 @@
-package com.sebag.florent.presenter.view.fragments.auth
+package com.sebag.florent.presenter.view.fragments.login
 
 import androidx.lifecycle.MutableLiveData
-import com.sebag.florent.domain.models.User
-import com.sebag.florent.domain.usecases.AuthUseCase
+import com.sebag.florent.domain.usecases.LoginUseCase
 import com.sebag.florent.presenter.view.base.BaseViewModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.kotlin.subscribeBy
 import javax.inject.Inject
 
-class AuthVM @Inject constructor(private val authUseCase: AuthUseCase) : BaseViewModel() {
+class LoginVM @Inject constructor(private val loginUseCase: LoginUseCase) : BaseViewModel() {
 
-    val mUser = MutableLiveData<User>()
+    val mSuccess = MutableLiveData<Boolean>()
     val mError = MutableLiveData<String>()
 
     fun logUser(email: String, password: String) {
-        authUseCase.logUser(email, password)
+        loginUseCase.logUser(email, password)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy(
-                onSuccess = { it ->
-                    mUser.value = it
+                onComplete = {
+                    mSuccess.value = true
                 },
                 onError = {
                     mError.value = it.message

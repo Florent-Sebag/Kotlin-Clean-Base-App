@@ -2,7 +2,7 @@ package com.sebag.florent.cleanbaseapp
 
 import android.app.Application
 import com.sebag.florent.cleanbaseapp.di.component.DaggerAppComponent
-import com.sebag.florent.domain.usecases.AuthUseCase
+import com.sebag.florent.domain.usecases.LoginUseCase
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
@@ -14,7 +14,7 @@ class MyApp : Application(), HasAndroidInjector {
     lateinit var androidInjector : DispatchingAndroidInjector<Any>
 
     @Inject
-    lateinit var authUseCase: AuthUseCase
+    lateinit var loginUseCase: LoginUseCase
 
     override fun androidInjector(): AndroidInjector<Any> = androidInjector
 
@@ -25,7 +25,7 @@ class MyApp : Application(), HasAndroidInjector {
     }
 
     private fun checkIsConnectedUser() {
-        val isConnected = authUseCase.isUserConnected()
+        val isConnected = loginUseCase.isUserConnected()
         val editor = getSharedPreferences("prefs", MODE_PRIVATE).edit()
         editor.putBoolean("isConnected", isConnected)
         editor.apply()

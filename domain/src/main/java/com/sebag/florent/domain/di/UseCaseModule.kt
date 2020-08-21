@@ -3,7 +3,7 @@ package com.sebag.florent.domain.di
 import com.sebag.florent.domain.repositories.FirebaseAuthRepository
 import com.sebag.florent.domain.repositories.JokeRepository
 import com.sebag.florent.domain.repositories.SampleRepository
-import com.sebag.florent.domain.usecases.AuthUseCase
+import com.sebag.florent.domain.usecases.LoginUseCase
 import com.sebag.florent.domain.usecases.JokeUseCase
 import com.sebag.florent.domain.usecases.SampleUseCase
 import dagger.Module
@@ -23,6 +23,6 @@ class UseCaseModule {
 
     @Provides
     @Singleton
-    fun provideAuthUseCase(firebaseAuthRepository: FirebaseAuthRepository) : AuthUseCase =
-        AuthUseCase(firebaseAuthRepository)
+    fun provideAuthUseCase(firebaseAuthRepository: FirebaseAuthRepository) : LoginUseCase =
+        LoginUseCase(firebaseAuthRepository)
 }
