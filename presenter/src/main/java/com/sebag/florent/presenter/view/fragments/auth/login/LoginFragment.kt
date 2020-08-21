@@ -19,6 +19,7 @@ class LoginFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        bindView(view)
 
         btn_login.setOnClickListener {
             bindLoginBtn(it)
@@ -38,6 +39,9 @@ class LoginFragment : BaseFragment() {
 
         showLoadingDialog("Authenticating...")
         viewModel.logUser(input_email.text.toString(), input_password.text.toString())
+    }
+
+    private fun bindView(v: View) {
         viewModel.mSuccess.observe(viewLifecycleOwner, Observer { _ ->
             hideLoadingDialog()
             val direction = LoginFragmentDirections.goHome()

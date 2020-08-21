@@ -2,10 +2,8 @@ package com.sebag.florent.data.repositories
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.sebag.florent.domain.models.User
 import com.sebag.florent.domain.repositories.FirebaseAuthRepository
 import io.reactivex.rxjava3.core.Completable
-import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.schedulers.Schedulers
 import javax.inject.Inject
 

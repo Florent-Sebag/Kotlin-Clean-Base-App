@@ -23,7 +23,7 @@ class RegistrationFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        bindView(view)
         btn_registrate.setOnClickListener {
             setRegistrateBtn(view)
         }
@@ -33,9 +33,11 @@ class RegistrationFragment : BaseFragment() {
         if (CheckEmailPass.errorEmailPassword(::isBadInput, input_email, layout_email,
                 input_password, layout_password))
             return
-
         showLoadingDialog("Registrating...")
         viewModel.registrateUser(input_email.text.toString(), input_password.text.toString())
+    }
+
+    private fun bindView(v: View) {
         viewModel.mSuccess.observe(viewLifecycleOwner, Observer { _ ->
             hideLoadingDialog()
             showToastMessage("Success !")
@@ -44,8 +46,10 @@ class RegistrationFragment : BaseFragment() {
         })
 
         viewModel.mError.observe(viewLifecycleOwner, Observer {
-            hideLoadingDialog()
-            showToastMessage(it)
+            if (it != null) {
+                hideLoadingDialog()
+                showToastMessage(it)
+            }
         })
     }
 }

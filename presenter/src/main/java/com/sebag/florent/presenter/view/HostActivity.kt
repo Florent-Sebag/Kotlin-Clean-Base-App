@@ -2,7 +2,6 @@ package com.sebag.florent.presenter.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.navigation.fragment.NavHostFragment
 import com.sebag.florent.presenter.R
 import kotlinx.android.synthetic.main.activity_base.*
@@ -18,7 +17,6 @@ class HostActivity : AppCompatActivity() {
     }
 
     private fun isUserConnected() : Boolean {
-        Log.i("gnah", "BEGIN CHECK")
         val prefs = getSharedPreferences("prefs", MODE_PRIVATE)
         return prefs.getBoolean("isConnected", false)
     }
