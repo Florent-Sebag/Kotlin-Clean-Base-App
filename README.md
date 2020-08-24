@@ -1,4 +1,4 @@
-# Kotlin Modularized Clean/MVVM Architecture with Dagger/RX/Navigation/OkHttp/Retrofit/Firebase Base App
+# Kotlin Modularized Clean/MVVM Architecture with Dagger/RX/Navigation/Firebase Base App
 
 This repository is a base app you can use in order to create a new android application in Kotlin without creating again the architecture and importing the differents main's library.
 
