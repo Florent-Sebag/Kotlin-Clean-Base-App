@@ -9,6 +9,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.sebag.florent.data.BuildConfig
 import com.sebag.florent.domain.repositories.GoogleAuthRepository
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.CompletableEmitter
@@ -26,7 +27,7 @@ class GoogleAuthRepositoryImpl
 
     override fun bindGoogleConnection(activity: Activity) : Intent {
         mGoogleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken("205204836188-iefq613avhmrnki16j1hlrj15vn7o6ue.apps.googleusercontent.com")
+            .requestIdToken(BuildConfig.GOOGLE_API_KEY)
             .requestEmail()
             .build()
         mGoogleSignInClient = GoogleSignIn.getClient(activity, mGoogleSignInOptions)
