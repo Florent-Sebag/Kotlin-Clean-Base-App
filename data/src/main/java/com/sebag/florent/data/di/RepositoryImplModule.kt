@@ -4,12 +4,14 @@ import com.google.firebase.auth.FirebaseAuth
 import com.sebag.florent.data.repositories.JokeRepositoryImpl
 import com.sebag.florent.data.repositories.SampleRepositoryImpl
 import com.sebag.florent.data.api.IcnDB
-import com.sebag.florent.data.repositories.FirebaseAuthRepositoryImpl
-import com.sebag.florent.data.repositories.GoogleAuthRepositoryImpl
-import com.sebag.florent.domain.repositories.FirebaseAuthRepository
-import com.sebag.florent.domain.repositories.GoogleAuthRepository
+import com.sebag.florent.data.repositories.auth.FacebookAuthRepositoryImpl
+import com.sebag.florent.data.repositories.auth.FirebaseAuthRepositoryImpl
+import com.sebag.florent.data.repositories.auth.GoogleAuthRepositoryImpl
+import com.sebag.florent.domain.repositories.auth.FirebaseAuthRepository
+import com.sebag.florent.domain.repositories.auth.GoogleAuthRepository
 import com.sebag.florent.domain.repositories.JokeRepository
 import com.sebag.florent.domain.repositories.SampleRepository
+import com.sebag.florent.domain.repositories.auth.FacebookAuthRepository
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -36,4 +38,9 @@ class RepositoryImplModule {
     @Provides
     fun provideGoogleAuth(auth: FirebaseAuth) : GoogleAuthRepository =
         GoogleAuthRepositoryImpl(auth)
+
+    @Singleton
+    @Provides
+    fun provideFbAuth(auth: FirebaseAuth) : FacebookAuthRepository =
+        FacebookAuthRepositoryImpl(auth)
 }

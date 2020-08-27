@@ -3,6 +3,7 @@ package com.sebag.florent.presenter.view.fragments.auth.login
 import android.app.Activity
 import android.content.Intent
 import androidx.lifecycle.MutableLiveData
+import com.facebook.login.widget.LoginButton
 import com.sebag.florent.domain.usecases.LoginUseCase
 import com.sebag.florent.presenter.view.base.BaseViewModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -31,12 +32,12 @@ class LoginVM
             .addToDisposable()
     }
 
-    fun bindGoogleConnection(activity: Activity) : Intent {
-        return loginUseCase.bindGoogleConnection(activity)
+    fun bindExternalConnection(activity: Activity, fbBtn: LoginButton) : Intent {
+        return loginUseCase.bindExternalConnection(activity, fbBtn)
     }
 
-    fun onGoogleConnectionResult(requestCode: Int, data: Intent?) {
-        loginUseCase.onGoogleConnectionResult(requestCode, data)
+    fun onExternalConnectionResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        loginUseCase.onExternalConnectionResult(requestCode, resultCode, data)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy(
                 onComplete = {

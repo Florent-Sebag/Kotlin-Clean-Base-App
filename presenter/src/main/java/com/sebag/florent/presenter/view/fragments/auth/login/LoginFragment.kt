@@ -6,11 +6,6 @@ import android.util.Log
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.api.ApiException
-import com.google.firebase.auth.GoogleAuthProvider
 import com.sebag.florent.presenter.R
 import com.sebag.florent.presenter.view.base.BaseFragment
 import com.sebag.florent.presenter.view.fragments.auth.utils.CheckEmailPass
@@ -28,15 +23,16 @@ class LoginFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        bindView(view)
-        googleLoginIntent = viewModel.bindGoogleConnection(this.requireActivity())
 
+        Log.i("gnah","Onviewcreated")
+        bindBtns()
+        bindExternalConnection()
+        bindOnConnectionResult(view)
+    }
+
+    private fun bindBtns() {
         btn_login.setOnClickListener {
             bindLoginBtn(it)
-        }
-
-        btn_login_google.setOnClickListener {
-            signInWithGoogle()
         }
 
         link_signup.setOnClickListener { v ->
@@ -55,7 +51,15 @@ class LoginFragment : BaseFragment() {
         viewModel.logUser(input_email.text.toString(), input_password.text.toString())
     }
 
-    private fun bindView(v: View) {
+    private fun bindExternalConnection() {
+        btn_login_fb.fragment = this
+        btn_login_google.setOnClickListener {
+            startActivityForResult(googleLoginIntent, 1)
+        }
+        googleLoginIntent = viewModel.bindExternalConnection(this.requireActivity(), btn_login_fb)
+    }
+
+    private fun bindOnConnectionResult(v: View) {
         viewModel.mSuccess.observe(viewLifecycleOwner, Observer { _ ->
             hideLoadingDialog()
             val direction = LoginFragmentDirections.goHome()
@@ -68,13 +72,9 @@ class LoginFragment : BaseFragment() {
         })
     }
 
-    private fun signInWithGoogle() {
-        startActivityForResult(googleLoginIntent, 1)
-    }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         showLoadingDialog("Authenticating...")
-        viewModel.onGoogleConnectionResult(requestCode, data)
+        viewModel.onExternalConnectionResult(requestCode, resultCode, data)
     }
 }

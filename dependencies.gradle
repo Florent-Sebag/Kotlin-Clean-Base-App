@@ -21,6 +21,7 @@ ext {
     FIREBASE_AUTH                   = '19.3.2'
     FIREBASE_AUTH_UI                = '6.2.0'
     GOOGLE_AUTH                     = '18.1.0'
+    FB_AUTH                         = '7.1.0'
 
     MATERIAL_DESIGN                 = '1.2.0'
 
@@ -93,7 +94,8 @@ ext {
         FIREBASE : [
             "com.google.firebase:firebase-analytics:$FIREBASE",
             "com.google.firebase:firebase-auth:$FIREBASE_AUTH",
-            "com.google.android.gms:play-services-auth:$GOOGLE_AUTH"
+            "com.google.android.gms:play-services-auth:$GOOGLE_AUTH",
+            "com.facebook.android:facebook-login:$FB_AUTH"
         ],
 
         MATERIAL_DESIGN : "com.google.android.material:material:$MATERIAL_DESIGN"

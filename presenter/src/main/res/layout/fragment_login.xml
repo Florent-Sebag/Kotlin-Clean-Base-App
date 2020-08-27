@@ -61,7 +61,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:layout_marginBottom="4dp"
             android:padding="10dp"
             android:text="Login"
             android:backgroundTint="@color/blue_600"
@@ -74,10 +73,17 @@
             android:layout_height="wrap_content"
             android:text="Sign in with Google"
             android:padding="8dp"
+            android:layout_marginBottom="4dp"
             android:textColor="@color/gray"
             app:icon="@drawable/google_icon"
-            android:layout_marginBottom="24dp"
             app:iconTint="@null"/>
+
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/btn_login_fb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="24dp"/>
 
 
         <TextView android:id="@+id/link_signup"

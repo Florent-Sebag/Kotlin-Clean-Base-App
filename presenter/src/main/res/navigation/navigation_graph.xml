@@ -39,6 +39,10 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home">
 
+        <action
+            android:id="@+id/goLogin"
+            app:destination="@id/loginFragment" />
+
 <!--        EXEMPLE ARGUMENT-->
 <!--        <argument-->
 <!--            android:name="user"-->

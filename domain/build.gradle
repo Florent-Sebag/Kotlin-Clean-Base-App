@@ -43,6 +43,7 @@ dependencies {
     implementation globalDependencies.DAGGER
     implementation globalDependencies.GSON
     implementation globalDependencies.RXJAVA
+    implementation globalDependencies.FIREBASE
 
     kapt globalDependencies.DAGGERK
 }

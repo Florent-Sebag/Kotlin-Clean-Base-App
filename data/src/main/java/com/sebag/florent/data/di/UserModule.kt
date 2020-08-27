@@ -1,7 +1,7 @@
 package com.sebag.florent.data.di
 
 import com.google.firebase.auth.FirebaseUser
-import com.sebag.florent.data.repositories.FirebaseAuthRepositoryImpl
+import com.sebag.florent.data.repositories.auth.FirebaseAuthRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

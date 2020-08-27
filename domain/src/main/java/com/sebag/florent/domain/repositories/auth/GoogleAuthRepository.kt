@@ -1,4 +1,4 @@
-package com.sebag.florent.domain.repositories
+package com.sebag.florent.domain.repositories.auth
 
 import android.app.Activity
 import android.content.Intent

@@ -1,8 +1,8 @@
-package com.sebag.florent.data.repositories
+package com.sebag.florent.data.repositories.auth
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.sebag.florent.domain.repositories.FirebaseAuthRepository
+import com.sebag.florent.domain.repositories.auth.FirebaseAuthRepository
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import javax.inject.Inject
@@ -46,6 +46,13 @@ class FirebaseAuthRepositoryImpl
                     }
                 }
         }.subscribeOn(Schedulers.io())
+    }
+
+    override fun disconnectUser(): Completable {
+        return Completable.create { emitter ->
+            auth.signOut()
+            emitter.onComplete()
+        }
     }
 
     fun fetchUser() : FirebaseUser {
