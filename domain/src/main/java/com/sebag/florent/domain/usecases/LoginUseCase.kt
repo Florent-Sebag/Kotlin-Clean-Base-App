@@ -2,6 +2,7 @@ package com.sebag.florent.domain.usecases
 
 import android.app.Activity
 import android.content.Intent
+import androidx.fragment.app.Fragment
 import com.facebook.login.widget.LoginButton
 import com.sebag.florent.domain.repositories.auth.FacebookAuthRepository
 import com.sebag.florent.domain.repositories.auth.FirebaseAuthRepository
@@ -19,8 +20,12 @@ class LoginUseCase
     fun logUser(email: String, password: String) : Completable =
         firebaseAuthRepository.loginUser(email, password)
 
-    fun bindExternalConnection(activity: Activity, fbBtn: LoginButton) : Intent {
-        facebookAuthRepository.bindFbConnection(fbBtn)
+    fun setFbClickListener(fragment: Fragment) {
+        facebookAuthRepository.setFbClickListener(fragment)
+    }
+
+    fun bindExternalConnection(activity: Activity) : Intent {
+        facebookAuthRepository.bindFbConnection()
         return googleAuthRepository.bindGoogleConnection(activity)
     }
 

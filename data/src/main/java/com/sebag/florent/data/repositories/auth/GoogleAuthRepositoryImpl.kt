@@ -40,7 +40,7 @@ class GoogleAuthRepositoryImpl
             try {
                 val account = task.getResult(ApiException::class.java)!!
                 Log.d("gnah", "firebaseAuthWithGoogle:" + account.id)
-                firebaseAuthWithGoogle(account.idToken!!, emitter)
+                logToFirebase(account.idToken!!, emitter)
             } catch (e: ApiException) {
                 Log.w("gnah", "Google sign in failed", e)
                 emitter.onError(e)
@@ -48,7 +48,7 @@ class GoogleAuthRepositoryImpl
         }.subscribeOn(Schedulers.io())
     }
 
-    private fun firebaseAuthWithGoogle(idToken: String, emitter: CompletableEmitter) {
+    private fun logToFirebase(idToken: String, emitter: CompletableEmitter) {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         this.signInFirebaseWithCredentials(auth, credential, emitter)
     }

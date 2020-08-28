@@ -2,14 +2,15 @@ package com.sebag.florent.presenter.view.fragments.auth.login
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
+import com.facebook.login.LoginManager
 import com.sebag.florent.presenter.R
 import com.sebag.florent.presenter.view.base.BaseFragment
 import com.sebag.florent.presenter.view.fragments.auth.utils.CheckEmailPass
 import kotlinx.android.synthetic.main.fragment_login.*
+import java.util.*
 import javax.inject.Inject
 
 class LoginFragment : BaseFragment() {
@@ -24,7 +25,6 @@ class LoginFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        Log.i("gnah","Onviewcreated")
         bindBtns()
         bindExternalConnection()
         bindOnConnectionResult(view)
@@ -52,11 +52,13 @@ class LoginFragment : BaseFragment() {
     }
 
     private fun bindExternalConnection() {
-        btn_login_fb.fragment = this
+        googleLoginIntent = viewModel.bindExternalConnection(this.requireActivity())
         btn_login_google.setOnClickListener {
-            startActivityForResult(googleLoginIntent, 1)
+            this.startActivityForResult(googleLoginIntent, 1)
         }
-        googleLoginIntent = viewModel.bindExternalConnection(this.requireActivity(), btn_login_fb)
+        btn_login_fb2.setOnClickListener {
+            viewModel.setFbClickListener(this)
+        }
     }
 
     private fun bindOnConnectionResult(v: View) {

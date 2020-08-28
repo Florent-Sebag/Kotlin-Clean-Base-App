@@ -2,6 +2,7 @@ package com.sebag.florent.presenter.view.fragments.auth.login
 
 import android.app.Activity
 import android.content.Intent
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
 import com.facebook.login.widget.LoginButton
 import com.sebag.florent.domain.usecases.LoginUseCase
@@ -32,8 +33,12 @@ class LoginVM
             .addToDisposable()
     }
 
-    fun bindExternalConnection(activity: Activity, fbBtn: LoginButton) : Intent {
-        return loginUseCase.bindExternalConnection(activity, fbBtn)
+    fun setFbClickListener(fragment: Fragment) {
+        return loginUseCase.setFbClickListener(fragment)
+    }
+
+    fun bindExternalConnection(activity: Activity) : Intent {
+        return loginUseCase.bindExternalConnection(activity)
     }
 
     fun onExternalConnectionResult(requestCode: Int, resultCode: Int, data: Intent?) {

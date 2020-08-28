@@ -1,12 +1,14 @@
 package com.sebag.florent.domain.repositories.auth
 
 import android.content.Intent
-import com.facebook.login.widget.LoginButton
+import androidx.fragment.app.Fragment
 import io.reactivex.rxjava3.core.Completable
 
 interface FacebookAuthRepository {
 
-    fun bindFbConnection(btn : LoginButton)
+    fun setFbClickListener(fragment: Fragment)
+
+    fun bindFbConnection()
 
     fun onFbConnectionResult(requestCode: Int, resultCode: Int, data: Intent?) : Completable
 }
