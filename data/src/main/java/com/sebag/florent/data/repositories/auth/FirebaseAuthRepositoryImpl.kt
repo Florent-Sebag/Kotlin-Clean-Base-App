@@ -54,8 +54,4 @@ class FirebaseAuthRepositoryImpl
             emitter.onComplete()
         }
     }
-
-    fun fetchUser() : FirebaseUser {
-        return (auth.currentUser!!)
-    }
 }

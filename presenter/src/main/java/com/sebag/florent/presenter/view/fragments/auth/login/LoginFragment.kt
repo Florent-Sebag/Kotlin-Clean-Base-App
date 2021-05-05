@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
-import com.facebook.login.LoginManager
 import com.sebag.florent.presenter.R
 import com.sebag.florent.presenter.view.base.BaseFragment
 import com.sebag.florent.presenter.view.fragments.auth.utils.CheckEmailPass

@@ -2,12 +2,9 @@ package com.sebag.florent.data.repositories.auth
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.sebag.florent.domain.models.User
+import com.sebag.florent.domain.models.UserModel
 import com.sebag.florent.domain.repositories.auth.UserManagerRepository
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Single
-import io.reactivex.rxjava3.kotlin.subscribeBy
 import javax.inject.Inject
 
 class UserManagerRepositoryImpl
@@ -15,18 +12,20 @@ class UserManagerRepositoryImpl
     private val auth: FirebaseAuth
 ) : UserManagerRepository {
 
-    private var user : FirebaseUser ? = null
+    private var firebaseUser : FirebaseUser ? = null
+    private var user : UserModel? = null
     
-    override fun getCurrentUser(): Single<FirebaseUser> {
+    override fun getCurrentUser(): Single<UserModel> {
         user?.let {
             return Single.create { emitter ->
-                  emitter.onSuccess(it)
+                emitter.onSuccess(user)
             }
         }
 
         return (Single.create { emitter ->
-            user = auth.currentUser
-            user?.let {
+            firebaseUser = auth.currentUser
+            firebaseUser?.let {
+                user = deserializeFirebaseUser(it)
                 emitter.onSuccess(user)
             } ?:run {
                 emitter.onError(Throwable("User not connected"))
@@ -36,12 +35,21 @@ class UserManagerRepositoryImpl
 
     override fun isUserConnected(): Boolean {
         // Intentionally blocking for staying connected to the app after closing it
-        user = auth.currentUser
-        return (user != null)
+        firebaseUser = auth.currentUser
+        return (firebaseUser != null)
     }
 
     override fun disconnectUser() {
         user = null
+        firebaseUser = null
+    }
+
+    private fun deserializeFirebaseUser(it: FirebaseUser) : UserModel {
+        return (UserModel(it.displayName,
+            it.email,
+            it.isEmailVerified,
+            it.phoneNumber,
+            it.photoUrl))
     }
 
 }

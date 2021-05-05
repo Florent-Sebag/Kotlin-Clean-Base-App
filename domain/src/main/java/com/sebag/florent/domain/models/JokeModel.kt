@@ -2,7 +2,7 @@ package com.sebag.florent.domain.models
 
 import com.google.gson.annotations.SerializedName
 
-data class Joke(
+data class JokeModel(
 
     @SerializedName("id")
     val jokeId: Int,

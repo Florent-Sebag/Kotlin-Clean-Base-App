@@ -2,8 +2,7 @@ package com.sebag.florent.presenter.view.fragments.home
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.google.firebase.auth.FirebaseUser
-import com.sebag.florent.domain.models.Joke
+import com.sebag.florent.domain.models.JokeModel
 import com.sebag.florent.domain.usecases.*
 import com.sebag.florent.presenter.view.base.BaseViewModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -18,7 +17,7 @@ class HomeVM
     private val logoutUseCase: LogoutUseCase
 ): BaseViewModel() {
 
-    val mJoke = MutableLiveData<Joke>()
+    val mJoke = MutableLiveData<JokeModel>()
     val isDisconnected = MutableLiveData<Boolean>()
     val mEmail = MutableLiveData<String>()
 

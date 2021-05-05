@@ -17,8 +17,8 @@ ext {
     RXJAVA                          = '3.0.0'
     RXRETROFIT                      = '3.0.0'
 
-    FIREBASE                        = '17.5.0' //?
-    FIREBASE_AUTH                   = '19.3.2'
+    FIREBASE                        = '18.0.3' //?
+    FIREBASE_AUTH                   = '20.0.4'
     FIREBASE_AUTH_UI                = '6.2.0'
     GOOGLE_AUTH                     = '18.1.0'
     FB_AUTH                         = '7.1.0'
@@ -92,8 +92,8 @@ ext {
         ],
 
         FIREBASE : [
-            "com.google.firebase:firebase-analytics:$FIREBASE",
-            "com.google.firebase:firebase-auth:$FIREBASE_AUTH",
+            "com.google.firebase:firebase-analytics-ktx:$FIREBASE",
+            "com.google.firebase:firebase-auth-ktx:$FIREBASE_AUTH",
             "com.google.android.gms:play-services-auth:$GOOGLE_AUTH",
             "com.facebook.android:facebook-login:$FB_AUTH"
         ],
