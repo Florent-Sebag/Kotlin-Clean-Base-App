@@ -30,7 +30,7 @@ class UserManagerRepositoryImpl
             } ?:run {
                 emitter.onError(Throwable("User not connected"))
             }
-        });
+        })
     }
 
     override fun isUserConnected(): Boolean {

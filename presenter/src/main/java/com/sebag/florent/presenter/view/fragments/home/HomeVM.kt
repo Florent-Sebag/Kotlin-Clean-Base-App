@@ -4,6 +4,8 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.sebag.florent.domain.models.JokeModel
 import com.sebag.florent.domain.usecases.*
+import com.sebag.florent.domain.usecases.auth.LogoutUseCase
+import com.sebag.florent.domain.usecases.auth.UserManagerUseCase
 import com.sebag.florent.presenter.view.base.BaseViewModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.kotlin.subscribeBy

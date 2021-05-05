@@ -1,4 +1,4 @@
-package com.sebag.florent.domain.usecases
+package com.sebag.florent.domain.usecases.auth
 
 import android.app.Activity
 import android.content.Intent

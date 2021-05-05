@@ -1,4 +1,4 @@
-package com.sebag.florent.domain.usecases
+package com.sebag.florent.domain.usecases.auth
 
 import com.sebag.florent.domain.models.UserModel
 import com.sebag.florent.domain.repositories.auth.UserManagerRepository

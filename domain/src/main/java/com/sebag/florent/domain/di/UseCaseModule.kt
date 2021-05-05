@@ -7,6 +7,10 @@ import com.sebag.florent.domain.repositories.SampleRepository
 import com.sebag.florent.domain.repositories.auth.FacebookAuthRepository
 import com.sebag.florent.domain.repositories.auth.UserManagerRepository
 import com.sebag.florent.domain.usecases.*
+import com.sebag.florent.domain.usecases.auth.LoginUseCase
+import com.sebag.florent.domain.usecases.auth.LogoutUseCase
+import com.sebag.florent.domain.usecases.auth.RegistrationUseCase
+import com.sebag.florent.domain.usecases.auth.UserManagerUseCase
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -28,22 +32,33 @@ class UseCaseModule {
                            googleAuthRepository: GoogleAuthRepository,
                            facebookAuthRepository: FacebookAuthRepository
     ) : LoginUseCase =
-        LoginUseCase(firebaseAuthRepository, googleAuthRepository, facebookAuthRepository)
+        LoginUseCase(
+            firebaseAuthRepository,
+            googleAuthRepository,
+            facebookAuthRepository
+        )
 
     @Provides
     @Singleton
     fun provideRegistrationUseCase(firebaseAuthRepository: FirebaseAuthRepository) : RegistrationUseCase =
-        RegistrationUseCase(firebaseAuthRepository)
+        RegistrationUseCase(
+            firebaseAuthRepository
+        )
 
     @Provides
     @Singleton
     fun provideLogoutUseCase(firebaseAuthRepository: FirebaseAuthRepository,
                              userManagerRepository: UserManagerRepository
     ) : LogoutUseCase =
-        LogoutUseCase(firebaseAuthRepository, userManagerRepository)
+        LogoutUseCase(
+            firebaseAuthRepository,
+            userManagerRepository
+        )
 
     @Provides
     @Singleton
     fun provideUserManagerUseCase(userManagerRepository: UserManagerRepository) : UserManagerUseCase =
-        UserManagerUseCase(userManagerRepository)
+        UserManagerUseCase(
+            userManagerRepository
+        )
 }

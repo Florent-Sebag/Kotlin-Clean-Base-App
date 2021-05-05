@@ -2,8 +2,7 @@ package com.sebag.florent.cleanbaseapp
 
 import android.app.Application
 import com.sebag.florent.cleanbaseapp.di.component.DaggerAppComponent
-import com.sebag.florent.domain.usecases.LoginUseCase
-import com.sebag.florent.domain.usecases.UserManagerUseCase
+import com.sebag.florent.domain.usecases.auth.UserManagerUseCase
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
