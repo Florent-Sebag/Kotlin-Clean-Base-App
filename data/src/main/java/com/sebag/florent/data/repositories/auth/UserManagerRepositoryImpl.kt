@@ -36,6 +36,9 @@ class UserManagerRepositoryImpl
     override fun isUserConnected(): Boolean {
         // Intentionally blocking for staying connected to the app after closing it
         firebaseUser = auth.currentUser
+        firebaseUser?.let {
+            user = deserializeFirebaseUser(it)
+        }
         return (firebaseUser != null)
     }
 
