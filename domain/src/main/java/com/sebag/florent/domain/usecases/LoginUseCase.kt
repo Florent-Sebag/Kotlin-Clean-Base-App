@@ -3,7 +3,6 @@ package com.sebag.florent.domain.usecases
 import android.app.Activity
 import android.content.Intent
 import androidx.fragment.app.Fragment
-import com.facebook.login.widget.LoginButton
 import com.sebag.florent.domain.repositories.auth.FacebookAuthRepository
 import com.sebag.florent.domain.repositories.auth.FirebaseAuthRepository
 import com.sebag.florent.domain.repositories.auth.GoogleAuthRepository
@@ -34,6 +33,4 @@ class LoginUseCase
             return googleAuthRepository.onGoogleConnectionResult(requestCode, data)
         return facebookAuthRepository.onFbConnectionResult(requestCode, resultCode, data)
     }
-
-    fun isUserConnected() : Boolean = firebaseAuthRepository.isUserConnected()
 }
