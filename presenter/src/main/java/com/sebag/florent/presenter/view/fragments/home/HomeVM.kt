@@ -1,6 +1,7 @@
 package com.sebag.florent.presenter.view.fragments.home
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.sebag.florent.domain.models.JokeModel
 import com.sebag.florent.domain.usecases.*
@@ -13,21 +14,25 @@ import javax.inject.Inject
 
 class HomeVM
 @Inject constructor(
-    private val sampleUseCase: SampleUseCase,
     private val jokeUseCase: JokeUseCase,
     private val userManagerUseCase: UserManagerUseCase,
     private val logoutUseCase: LogoutUseCase
 ): BaseViewModel() {
 
-    val mJoke = MutableLiveData<JokeModel>()
-    val isDisconnected = MutableLiveData<Boolean>()
-    val mEmail = MutableLiveData<String>()
+    private val _mJoke = MutableLiveData<JokeModel>()
+    val mJoke : LiveData<JokeModel> = _mJoke
+
+    private val _isDisconnected = MutableLiveData<Boolean>()
+    val isDisconnected : LiveData<Boolean> = _isDisconnected
+
+    private val _mEmail = MutableLiveData<String>()
+    val mEmail : LiveData<String> = _mEmail
 
     fun generateJoke() {
         jokeUseCase.getRandomJoke()
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy(
-                onSuccess = { mJoke.value = it },
+                onSuccess = { _mJoke.value = it },
                 onError = { Log.i("gnah", it.message!!)}
                 )
             .addToDisposable()
@@ -37,7 +42,7 @@ class HomeVM
         logoutUseCase.logoutUser()
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy(
-                onComplete = { isDisconnected.value = true },
+                onComplete = { _isDisconnected.value = true },
                 onError = { Log.i("gnah", it.message!!)}
             )
             .addToDisposable()
@@ -47,8 +52,8 @@ class HomeVM
         userManagerUseCase.getCurrentUser()
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy(
-                onSuccess = { mEmail.value = it.email },
-                onError = { mEmail.value = it.message }
+                onSuccess = { _mEmail.value = it.email },
+                onError = { _mEmail.value = it.message }
             )
             .addToDisposable()
     }

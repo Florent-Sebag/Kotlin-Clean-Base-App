@@ -3,6 +3,7 @@ package com.sebag.florent.presenter.view.fragments.auth.login
 import android.app.Activity
 import android.content.Intent
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.sebag.florent.domain.usecases.auth.LoginUseCase
 import com.sebag.florent.presenter.view.base.BaseViewModel
@@ -15,18 +16,21 @@ class LoginVM
     private val loginUseCase: LoginUseCase
 ) : BaseViewModel() {
 
-    val mSuccess = MutableLiveData<Boolean>()
-    val mError = MutableLiveData<String>()
+    private val _mSuccess = MutableLiveData<Boolean>()
+    val mSuccess : LiveData<Boolean> = _mSuccess
+
+    private val _mError = MutableLiveData<String>()
+    val mError : LiveData<String> = _mError
 
     fun logUser(email: String, password: String) {
         loginUseCase.logUser(email, password)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy(
                 onComplete = {
-                    mSuccess.value = true
+                    _mSuccess.value = true
                 },
                 onError = {
-                    mError.value = it.message
+                    _mError.value = it.message
                 }
             )
             .addToDisposable()
@@ -45,10 +49,10 @@ class LoginVM
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy(
                 onComplete = {
-                    mSuccess.value = true
+                    _mSuccess.value = true
                 },
                 onError = {
-                    mError.value = it.message
+                    _mError.value = it.message
                 }
             )
             .addToDisposable()

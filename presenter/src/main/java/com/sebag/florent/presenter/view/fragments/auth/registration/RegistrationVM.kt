@@ -1,5 +1,6 @@
 package com.sebag.florent.presenter.view.fragments.auth.registration
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.sebag.florent.domain.usecases.auth.RegistrationUseCase
 import com.sebag.florent.presenter.view.base.BaseViewModel
@@ -12,18 +13,21 @@ class RegistrationVM
     private val registrationUseCase: RegistrationUseCase
 ) : BaseViewModel() {
 
-    val mSuccess = MutableLiveData<Boolean>()
-    val mError = MutableLiveData<String>()
+    private val _mSuccess = MutableLiveData<Boolean>()
+    val mSuccess : LiveData<Boolean> = _mSuccess
+
+    private val _mError = MutableLiveData<String>()
+    val mError : LiveData<String> = _mError
 
     fun registrateUser(email: String, password: String) {
         registrationUseCase.registrateUser(email, password)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy(
                 onComplete = {
-                    mSuccess.value = true
+                    _mSuccess.value = true
                 },
                 onError = {
-                    mError.value = it.message
+                    _mError.value = it.message
                 }
             )
             .addToDisposable()
