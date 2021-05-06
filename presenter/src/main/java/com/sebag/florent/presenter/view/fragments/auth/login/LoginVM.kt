@@ -4,8 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
-import com.facebook.login.widget.LoginButton
-import com.sebag.florent.domain.usecases.LoginUseCase
+import com.sebag.florent.domain.usecases.auth.LoginUseCase
 import com.sebag.florent.presenter.view.base.BaseViewModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.kotlin.subscribeBy

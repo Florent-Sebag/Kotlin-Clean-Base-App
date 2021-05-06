@@ -27,7 +27,7 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun initView() {
-        generateBtn.text = viewModel.getEmail()
+        viewModel.getEmail()
 
         generateBtn.setOnClickListener {
             viewModel.generateJoke()
@@ -45,10 +45,12 @@ class HomeFragment : BaseFragment() {
         })
         viewModel.isDisconnected.observe(viewLifecycleOwner, Observer { isDisconnected ->
             if (isDisconnected) {
-                //TODO Close this fragment
                 val direction = HomeFragmentDirections.goLogin()
                 view.findNavController().navigate(direction)
             }
+        })
+        viewModel.mEmail.observe(viewLifecycleOwner, Observer { email ->
+            generateBtn.text = email
         })
     }
 }

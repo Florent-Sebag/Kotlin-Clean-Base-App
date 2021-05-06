@@ -2,11 +2,10 @@ package com.sebag.florent.presenter.view.fragments.home
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.google.firebase.auth.FirebaseUser
-import com.sebag.florent.domain.models.Joke
-import com.sebag.florent.domain.usecases.JokeUseCase
-import com.sebag.florent.domain.usecases.LogoutUseCase
-import com.sebag.florent.domain.usecases.SampleUseCase
+import com.sebag.florent.domain.models.JokeModel
+import com.sebag.florent.domain.usecases.*
+import com.sebag.florent.domain.usecases.auth.LogoutUseCase
+import com.sebag.florent.domain.usecases.auth.UserManagerUseCase
 import com.sebag.florent.presenter.view.base.BaseViewModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.kotlin.subscribeBy
@@ -16,12 +15,13 @@ class HomeVM
 @Inject constructor(
     private val sampleUseCase: SampleUseCase,
     private val jokeUseCase: JokeUseCase,
-    private val user: FirebaseUser,
+    private val userManagerUseCase: UserManagerUseCase,
     private val logoutUseCase: LogoutUseCase
 ): BaseViewModel() {
 
-    val mJoke = MutableLiveData<Joke>()
+    val mJoke = MutableLiveData<JokeModel>()
     val isDisconnected = MutableLiveData<Boolean>()
+    val mEmail = MutableLiveData<String>()
 
     fun generateJoke() {
         jokeUseCase.getRandomJoke()
@@ -43,7 +43,13 @@ class HomeVM
             .addToDisposable()
     }
 
-    fun getEmail() : String? {
-        return (user.email)
+    fun getEmail() {
+        userManagerUseCase.getCurrentUser()
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeBy(
+                onSuccess = { mEmail.value = it.email },
+                onError = { mEmail.value = it.message }
+            )
+            .addToDisposable()
     }
 }

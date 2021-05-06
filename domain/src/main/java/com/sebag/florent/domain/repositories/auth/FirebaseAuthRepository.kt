@@ -9,6 +9,4 @@ interface FirebaseAuthRepository {
     fun registerUser(email: String, password : String) : Completable
 
     fun disconnectUser() : Completable
-
-    fun isUserConnected() : Boolean
 }

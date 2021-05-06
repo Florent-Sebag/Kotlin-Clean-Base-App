@@ -7,11 +7,13 @@ import com.sebag.florent.data.api.IcnDB
 import com.sebag.florent.data.repositories.auth.FacebookAuthRepositoryImpl
 import com.sebag.florent.data.repositories.auth.FirebaseAuthRepositoryImpl
 import com.sebag.florent.data.repositories.auth.GoogleAuthRepositoryImpl
+import com.sebag.florent.data.repositories.auth.UserManagerRepositoryImpl
 import com.sebag.florent.domain.repositories.auth.FirebaseAuthRepository
 import com.sebag.florent.domain.repositories.auth.GoogleAuthRepository
 import com.sebag.florent.domain.repositories.JokeRepository
 import com.sebag.florent.domain.repositories.SampleRepository
 import com.sebag.florent.domain.repositories.auth.FacebookAuthRepository
+import com.sebag.florent.domain.repositories.auth.UserManagerRepository
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -43,4 +45,9 @@ class RepositoryImplModule {
     @Provides
     fun provideFbAuth(auth: FirebaseAuth) : FacebookAuthRepository =
         FacebookAuthRepositoryImpl(auth)
+
+    @Singleton
+    @Provides
+    fun provideUserManager(auth: FirebaseAuth) : UserManagerRepository =
+        UserManagerRepositoryImpl(auth)
 }

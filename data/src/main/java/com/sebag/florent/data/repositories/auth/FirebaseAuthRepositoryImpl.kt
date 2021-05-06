@@ -12,14 +12,6 @@ class FirebaseAuthRepositoryImpl
     private val auth : FirebaseAuth
 ) : FirebaseAuthRepository {
 
-    override fun isUserConnected(): Boolean {
-        // need to be a blocking function
-        // stay connected functionality
-
-        val user = auth.currentUser
-        return (user != null)
-    }
-
     override fun loginUser(email: String, password : String): Completable {
         return Completable.create { emitter ->
 
@@ -53,9 +45,5 @@ class FirebaseAuthRepositoryImpl
             auth.signOut()
             emitter.onComplete()
         }
-    }
-
-    fun fetchUser() : FirebaseUser {
-        return (auth.currentUser!!)
     }
 }
