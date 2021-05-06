@@ -8,36 +8,61 @@
     tools:context=".view.fragments.home.HomeFragment"
     android:layout_gravity="center"
     android:layout_marginTop="20dp"
-    android:layout_marginBottom="20dp">
+    android:layout_marginBottom="20dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/generateBtn"
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/email_text_view"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Generate a joke" />
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:gravity="center_horizontal" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/joke_text_view"
-        app:layout_constraintTop_toBottomOf="@id/generateBtn"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="@dimen/text_medium"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
         />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/logoutBtn"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        android:gravity="center"
+        >
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/generateBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Generate a joke"
+        android:layout_marginRight="10dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/logoutBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Logout"
         android:backgroundTint="@color/red_600"
         android:textColor="@color/white_50"
-        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
         />
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

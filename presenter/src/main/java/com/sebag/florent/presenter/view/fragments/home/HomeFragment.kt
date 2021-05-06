@@ -50,7 +50,7 @@ class HomeFragment : BaseFragment() {
             }
         })
         viewModel.mEmail.observe(viewLifecycleOwner, Observer { email ->
-            generateBtn.text = email
+            email_text_view.text = getString(R.string.email_display, email)
         })
     }
 }
