@@ -10,7 +10,6 @@ import com.sebag.florent.presenter.databinding.FragmentLoginBinding
 import com.sebag.florent.presenter.view.base.BaseFragment
 import com.sebag.florent.presenter.view.fragments.auth.utils.CheckEmailPass
 import kotlinx.android.synthetic.main.fragment_login.*
-import java.util.*
 import javax.inject.Inject
 
 class LoginFragment : BaseFragment<FragmentLoginBinding>() {
@@ -24,6 +23,8 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.loginVM = viewModel
+        binding.fragment = this
 
         bindBtns()
         bindExternalConnection()
@@ -55,9 +56,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
         googleLoginIntent = viewModel.bindExternalConnection(this.requireActivity())
         btn_login_google.setOnClickListener {
             this.startActivityForResult(googleLoginIntent, 1)
-        }
-        btn_login_fb2.setOnClickListener {
-            viewModel.setFbClickListener(this)
         }
     }
 

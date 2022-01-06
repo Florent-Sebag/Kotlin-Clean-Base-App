@@ -14,7 +14,6 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.sebag.florent.presenter.R
-import com.sebag.florent.presenter.databinding.FragmentHomeBinding
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.loading_dialog.view.*
 
@@ -39,7 +38,6 @@ abstract class BaseFragment<T : ViewDataBinding> : Fragment() {
             false
         )
         binding.lifecycleOwner = viewLifecycleOwner
-        //val v = inflater.inflate(layoutRes(), container, false)
         return binding.root
     }
 

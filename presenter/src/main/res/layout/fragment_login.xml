@@ -6,8 +6,11 @@
 
     <data>
         <variable
-            name="homeVM"
+            name="loginVM"
             type="com.sebag.florent.presenter.view.fragments.auth.login.LoginVM" />
+        <variable
+            name="fragment"
+            type="androidx.fragment.app.Fragment" />
     </data>
 
 
@@ -90,9 +93,10 @@
                 app:icon="@drawable/google_icon"
                 app:iconSize="30dp"
                 app:iconTint="@null"/>
-
+<!--            -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_login_fb2"
+                android:onClick="@{() -> loginVM.setFbClickListener(fragment)}"
                 android:backgroundTint="#3B5998"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
