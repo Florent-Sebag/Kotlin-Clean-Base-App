@@ -20,13 +20,16 @@ class HomeVM
 ): BaseViewModel() {
 
     private val _mJoke = MutableLiveData<JokeModel>()
-    val mJoke : LiveData<JokeModel> = _mJoke
+    val mJoke : LiveData<JokeModel>
+        get() = _mJoke
 
     private val _isDisconnected = MutableLiveData<Boolean>()
-    val isDisconnected : LiveData<Boolean> = _isDisconnected
+    val isDisconnected : LiveData<Boolean>
+        get() = _isDisconnected
 
     private val _mEmail = MutableLiveData<String>()
-    val mEmail : LiveData<String> = _mEmail
+    val mEmail : LiveData<String>
+        get() = _mEmail
 
     fun generateJoke() {
         jokeUseCase.getRandomJoke()

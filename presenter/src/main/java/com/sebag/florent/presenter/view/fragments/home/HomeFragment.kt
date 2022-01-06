@@ -36,7 +36,7 @@ class HomeFragment : BaseFragment() {
             container,
             false
         )
-        //val v = inflater.inflate(layoutRes(), container, false)
+        binding.lifecycleOwner = viewLifecycleOwner
         return binding.root
     }
 
@@ -44,35 +44,16 @@ class HomeFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.homeVM = viewModel
 
-        initView()
-        listenVM(view)
-    }
-
-    private fun initView() {
         viewModel.getEmail()
-
-        generateBtn.setOnClickListener {
-            viewModel.generateJoke()
-        }
-        logoutBtn.setOnClickListener {
-            viewModel.logoutUser()
-        }
+        checkLogout(view)
     }
 
-    private fun listenVM(view: View) {
-        viewModel.mJoke.observe(viewLifecycleOwner, Observer { joke ->
-            joke?.let {
-                joke_text_view.text = it.jokeText
-            }
-        })
+    private fun checkLogout(view: View) {
         viewModel.isDisconnected.observe(viewLifecycleOwner, Observer { isDisconnected ->
             if (isDisconnected) {
                 val direction = HomeFragmentDirections.goLogin()
                 view.findNavController().navigate(direction)
             }
-        })
-        viewModel.mEmail.observe(viewLifecycleOwner, Observer { email ->
-            email_text_view.text = getString(R.string.email_display, email)
         })
     }
 }
