@@ -24,6 +24,10 @@ android {
         }
     }
 
+    dataBinding {
+        enabled = true
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -53,6 +57,8 @@ dependencies {
 
     kapt globalDependencies.DAGGERK
     kapt globalDependencies.LIFECYCLEK
+
+    kapt 'com.android.databinding:compiler:3.1.4'
 
 
 }
