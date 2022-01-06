@@ -8,18 +8,22 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.sebag.florent.presenter.R
+import com.sebag.florent.presenter.databinding.FragmentHomeBinding
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.loading_dialog.view.*
 
-abstract class BaseFragment : Fragment() {
+abstract class BaseFragment<T : ViewDataBinding> : Fragment() {
 
     @LayoutRes
     protected abstract fun layoutRes() : Int
+
+    protected lateinit var binding : T
 
     private lateinit var loadingDialog : AlertDialog
 
@@ -28,8 +32,15 @@ abstract class BaseFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val v = inflater.inflate(layoutRes(), container, false)
-        return v
+        binding = DataBindingUtil.inflate(
+            inflater,
+            layoutRes(),
+            container,
+            false
+        )
+        binding.lifecycleOwner = viewLifecycleOwner
+        //val v = inflater.inflate(layoutRes(), container, false)
+        return binding.root
     }
 
     override fun onAttach(context: Context) {

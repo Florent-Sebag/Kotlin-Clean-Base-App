@@ -6,13 +6,14 @@ import android.view.View
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import com.sebag.florent.presenter.R
+import com.sebag.florent.presenter.databinding.FragmentLoginBinding
 import com.sebag.florent.presenter.view.base.BaseFragment
 import com.sebag.florent.presenter.view.fragments.auth.utils.CheckEmailPass
 import kotlinx.android.synthetic.main.fragment_login.*
 import java.util.*
 import javax.inject.Inject
 
-class LoginFragment : BaseFragment() {
+class LoginFragment : BaseFragment<FragmentLoginBinding>() {
 
     @Inject
     lateinit var viewModel : LoginVM

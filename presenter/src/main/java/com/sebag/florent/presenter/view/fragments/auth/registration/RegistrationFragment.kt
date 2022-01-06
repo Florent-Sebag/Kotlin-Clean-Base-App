@@ -5,6 +5,7 @@ import android.view.View
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import com.sebag.florent.presenter.R
+import com.sebag.florent.presenter.databinding.FragmentRegistrationBinding
 import com.sebag.florent.presenter.view.base.BaseFragment
 import com.sebag.florent.presenter.view.fragments.auth.utils.CheckEmailPass
 import kotlinx.android.synthetic.main.fragment_registration.*
@@ -14,7 +15,7 @@ import kotlinx.android.synthetic.main.fragment_registration.layout_email
 import kotlinx.android.synthetic.main.fragment_registration.layout_password
 import javax.inject.Inject
 
-class RegistrationFragment : BaseFragment() {
+class RegistrationFragment : BaseFragment<FragmentRegistrationBinding>() {
 
     override fun layoutRes(): Int = R.layout.fragment_registration
 

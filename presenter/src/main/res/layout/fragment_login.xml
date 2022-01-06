@@ -1,106 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:fitsSystemWindows="true"
-    android:background="@color/blue_200"
-    android:theme="@style/contraryTheme">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="56dp"
-        android:paddingLeft="24dp"
-        android:paddingRight="24dp">
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-        <ImageView android:src="@drawable/logo"
-            android:layout_width="wrap_content"
-            android:layout_height="72dp"
-            android:layout_marginBottom="72dp"
-            android:layout_gravity="center_horizontal" />
+    <data>
+        <variable
+            name="homeVM"
+            type="com.sebag.florent.presenter.view.fragments.auth.login.LoginVM" />
+    </data>
 
-        <!-- Email Label -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/layout_email"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+
+        android:fitsSystemWindows="true"
+        android:background="@color/blue_200"
+        android:theme="@style/contraryTheme">
+
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            >
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/input_email"
+            android:paddingTop="56dp"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp">
+
+            <ImageView android:src="@drawable/logo"
+                android:layout_width="wrap_content"
+                android:layout_height="72dp"
+                android:layout_marginBottom="72dp"
+                android:layout_gravity="center_horizontal" />
+
+            <!-- Email Label -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_email"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:hint="Email"
-                android:textColor="@color/white_50"/>
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:hint="Email"
+                    android:textColor="@color/white_50"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Password Label -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/layout_password"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            >
-            <com.google.android.material.textfield.TextInputEditText android:id="@+id/input_password"
+            <!-- Password Label -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_password"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:hint="Password"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                >
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/input_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:hint="Password"
+                    android:textColor="@color/white_50"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:padding="10dp"
+                android:text="Login"
+                android:backgroundTint="@color/blue_600"
+                android:textColor="@color/white_50"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_login_google"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sign in with Google"
+                android:padding="8dp"
+                android:layout_marginBottom="4dp"
+                android:textColor="@color/gray"
+                app:icon="@drawable/google_icon"
+                app:iconSize="30dp"
+                app:iconTint="@null"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_login_fb2"
+                android:backgroundTint="#3B5998"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sign in with Facebook"
+                android:padding="8dp"
+                android:layout_marginBottom="4dp"
+                android:textColor="@color/white_50"
+                app:icon="@drawable/fb_icon"
+                app:iconSize="30dp"
+                app:iconTint="@null"/>
+
+
+            <TextView android:id="@+id/link_signup"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:text="No account yet? Create one"
+                android:gravity="center"
+                android:textSize="16sp"
                 android:textColor="@color/white_50"/>
-        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:padding="10dp"
-            android:text="Login"
-            android:backgroundTint="@color/blue_600"
-            android:textColor="@color/white_50"
-            />
+        </LinearLayout>
+    </ScrollView>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_login_google"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Sign in with Google"
-            android:padding="8dp"
-            android:layout_marginBottom="4dp"
-            android:textColor="@color/gray"
-            app:icon="@drawable/google_icon"
-            app:iconSize="30dp"
-            app:iconTint="@null"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_login_fb2"
-            android:backgroundTint="#3B5998"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Sign in with Facebook"
-            android:padding="8dp"
-            android:layout_marginBottom="4dp"
-            android:textColor="@color/white_50"
-            app:icon="@drawable/fb_icon"
-            app:iconSize="30dp"
-            app:iconTint="@null"/>
-
-
-        <TextView android:id="@+id/link_signup"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:text="No account yet? Create one"
-            android:gravity="center"
-            android:textSize="16sp"
-            android:textColor="@color/white_50"/>
-
-    </LinearLayout>
-</ScrollView>
+</layout>
