@@ -21,6 +21,7 @@ Thanks to that, the UI and API calls are totally independant, so you can change 
 - Dagger2 - used for the dependency injection (OP)
 - Okhttp, retrofit, gson - used for the API calls
 - RxKotlin - to do API calls in an asynchronous way
+- Databinding - For binding dynamically values on front
 
 And, for the firebase version :
 - Material design
