@@ -14,10 +14,12 @@ class RegistrationVM
 ) : BaseViewModel() {
 
     private val _mSuccess = MutableLiveData<Boolean>()
-    val mSuccess : LiveData<Boolean> = _mSuccess
+    val mSuccess : LiveData<Boolean>
+        get() = _mSuccess
 
     private val _mError = MutableLiveData<String>()
-    val mError : LiveData<String> = _mError
+    val mError : LiveData<String>
+        get() = _mError
 
     fun registrateUser(email: String, password: String) {
         registrationUseCase.registrateUser(email, password)

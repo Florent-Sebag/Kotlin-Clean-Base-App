@@ -17,10 +17,12 @@ class LoginVM
 ) : BaseViewModel() {
 
     private val _mSuccess = MutableLiveData<Boolean>()
-    val mSuccess : LiveData<Boolean> = _mSuccess
+    val mSuccess : LiveData<Boolean>
+        get() = _mSuccess
 
     private val _mError = MutableLiveData<String>()
-    val mError : LiveData<String> = _mError
+    val mError : LiveData<String>
+        get() = _mError
 
     fun logUser(email: String, password: String) {
         loginUseCase.logUser(email, password)

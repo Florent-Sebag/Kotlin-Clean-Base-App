@@ -1,16 +1,12 @@
 package com.sebag.florent.presenter.view.fragments.home
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import com.sebag.florent.presenter.R
 import com.sebag.florent.presenter.databinding.FragmentHomeBinding
 import com.sebag.florent.presenter.view.base.BaseFragment
-import kotlinx.android.synthetic.main.fragment_home.*
 import javax.inject.Inject
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
